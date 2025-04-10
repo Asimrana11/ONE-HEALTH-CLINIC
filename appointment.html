@@ -1,79 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Book Appointment | Health Clinic</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
-  <header class="bg-primary text-white p-4">
-    <div class="container">
-      <h1>Book an Appointment</h1>
-      <a href="index.html" class="text-white">← Back to Home</a>
-    </div>
-  </header>
+<form id="bookingForm">
+  <input type="text" placeholder="Patient Name" required>
+  <input type="date" placeholder="Date" required>
+  <button type="submit">Book Appointment</button>
+</form>
 
-  <main class="container my-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <form id="bookingForm" class="card p-4">
-          <div class="mb-3">
-            <label for="name" class="form-label">Full Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="date" class="form-label">Appointment Date</label>
-            <input type="date" class="form-control" id="date" required>
-          </div>
-          <div class="mb-3">
-            <label for="time" class="form-label">Preferred Time</label>
-            <select class="form-select" id="time" required>
-              <option value="">Select a time</option>
-              <option value="09:00">09:00 AM</option>
-              <option value="10:00">10:00 AM</option>
-              <option value="11:00">11:00 AM</option>
-            </select>
-          </div>
-          <button type="submit" class="btn btn-primary">Confirm Booking</button>
-        </form>
-        <div id="confirmation" class="alert alert-success mt-3 d-none">
-          Appointment booked successfully!
-        </div>
-      </div>
-    </div>
-  </main>
+<script>
+  const appointments = []; // Mock database
 
-  <!-- Firebase & Form Handling -->
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-  <script src="firebase.js"></script>
-  <script>
-    document.getElementById('bookingForm').addEventListener('submit', (e) => {
-      e.preventDefault();
-      
-      const name = document.getElementById('name').value;
-      const email = document.getElementById('email').value;
-      const date = document.getElementById('date').value;
-      const time = document.getElementById('time').value;
-
-      // Save to Firebase
-      firebase.firestore().collection('appointments').add({
-        name,
-        email,
-        date,
-        time,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp()
-      }).then(() => {
-        document.getElementById('confirmation').classList.remove('d-none');
-        document.getElementById('bookingForm').reset();
-      });
-    });
-  </script>
-</body>
-</html>
+  document.getElementById("bookingForm").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const appointment = {
+      patient: e.target[0].value,
+      date: e.target[1].value,
+      status: "Pending"
+    };
+    appointments.push(appointment);
+    alert("Appointment booked!");
+  });
+</script>
