@@ -1,0 +1,27 @@
+<div class="container">
+  <h2>Admin Dashboard</h2>
+  <div class="card mt-4">
+    <div class="card-body">
+      <button class="btn btn-danger" onclick="addUser()">Add New Staff</button>
+      <table class="table mt-3" id="usersTable">
+        <!-- Users will be listed here by JS -->
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Display all users
+  function loadUsers() {
+    const table = document.getElementById("usersTable");
+    users.forEach(user => {
+      table.innerHTML += `
+        <tr>
+          <td>${user.name}</td>
+          <td>${user.role}</td>
+          <td><button class="btn btn-sm btn-danger" onclick="deleteUser('${user.username}')">Delete</button></td>
+        </tr>
+      `;
+    });
+  }
+</script>
