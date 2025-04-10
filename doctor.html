@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Appointments</h2>
+  <ul id="appointmentsList" class="list-group">
+    <!-- Appointments load here -->
+  </ul>
+</div>
+
+<script>
+  // Doctor can edit status
+  function loadAppointments() {
+    const list = document.getElementById("appointmentsList");
+    appointments.forEach(app => {
+      list.innerHTML += `
+        <li class="list-group-item">
+          ${app.patient} - ${app.date} 
+          <span class="badge bg-${app.status === 'Approved' ? 'success' : 'warning'}">
+            ${app.status}
+          </span>
+          ${user.role === 'doctor' ? 
+            `<button onclick="approveAppointment(${app.id})" class="btn btn-sm btn-success ms-2">
+              Approve
+            </button>` : ''
+          }
+        </li>
+      `;
+    });
+  }
+</script>
