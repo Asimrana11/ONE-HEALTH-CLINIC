@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reschedule Appointment</title>
+  <style>
+    body { font-family: Arial; background: #f1f8f5; padding: 2rem; }
+    form { max-width: 500px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    label { display: block; margin-top: 1rem; }
+    input { width: 100%; padding: 0.7rem; margin-top: 0.3rem; }
+    button { margin-top: 1.5rem; padding: 1rem; width: 100%; background: #00796b; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Reschedule Your Appointment</h2>
+  <form method="POST" action="/reschedule_appointment">
+    <label for="appointmentId">Appointment ID:</label>
+    <input type="text" name="appointmentId" required>
+
+    <label for="newDate">New Date:</label>
+    <input type="date" name="newDate" required>
+
+    <label for="newTime">New Time:</label>
+    <input type="time" name="newTime" required>
+
+    <button type="submit">Reschedule</button>
+  </form>
+</body>
+</html>
