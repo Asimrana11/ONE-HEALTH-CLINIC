@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Feedback</title>
+  <style>
+    body { font-family: Arial; background: #f1f8f5; padding: 2rem; }
+    form { max-width: 500px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    label { display: block; margin-top: 1rem; }
+    input, textarea { width: 100%; padding: 0.7rem; margin-top: 0.3rem; }
+    button { margin-top: 1.5rem; padding: 1rem; width: 100%; background: #00796b; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Give Your Feedback</h2>
+  <form method="POST" action="/submit_feedback">
+    <label for="name">Your Name:</label>
+    <input type="text" name="name" required>
+
+    <label for="message">Your Feedback:</label>
+    <textarea name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Feedback</button>
+  </form>
+</body>
+</html>
