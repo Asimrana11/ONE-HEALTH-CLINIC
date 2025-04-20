@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment</title>
+  <style>
+    body { font-family: Arial; background: #f1f8f5; padding: 2rem; }
+    form { max-width: 500px; margin: auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 0 10px #ccc; }
+    label { display: block; margin-top: 1rem; }
+    input, select { width: 100%; padding: 0.7rem; margin-top: 0.3rem; }
+    button { margin-top: 1.5rem; padding: 1rem; width: 100%; background: #00796b; color: white; border: none; border-radius: 5px; }
+  </style>
+</head>
+<body>
+  <h2>Book Appointment</h2>
+  <form method="POST" action="/book_appointment">
+    <label for="name">Full Name:</label>
+    <input type="text" name="name" required>
+
+    <label for="date">Date:</label>
+    <input type="date" name="date" required>
+
+    <label for="time">Time:</label>
+    <input type="time" name="time" required>
+
+    <label for="reason">Reason for Visit:</label>
+    <input type="text" name="reason" required>
+
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>
